@@ -1,8 +1,9 @@
 package jppro_l1.Animals;
 
-import jppro_l1.enums.Color;
 
-public abstract class Animals {
+import jppro_l1.Participant;
+
+public abstract class Animals implements Participant {
 
     private String name;
     private int age;
@@ -13,7 +14,7 @@ public abstract class Animals {
         this.age = age;
         this.color = color;
     }
-
+//
     //overload
     public Animals(String name, String color) {
         this(name, 0, color);
