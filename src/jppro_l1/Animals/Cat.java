@@ -74,7 +74,9 @@ public class Cat extends Animals implements Participant {
     @Override
     public void swim(int distance) {
         isOnDistance = false;
+
         System.out.println("Кошка утонула");
+        Off = true;
 //        throw new UnsupportedOperationException("Кошка утонула");
     }
 
