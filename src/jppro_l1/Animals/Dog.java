@@ -6,7 +6,6 @@ import jppro_l1.enums.Color;
 public class Dog extends Animals implements Participant {
 
     private boolean isOnDistance;
-    private boolean Off;
     private int runDistance;
     private int jumpHeight;
     private int swimDistance;
@@ -14,7 +13,6 @@ public class Dog extends Animals implements Participant {
     public Dog(String name, int age, String color, int runDistance, int jumpHeight, int swimDistance) {
         super(name, age, color);
         isOnDistance = true;
-        Off = false;
         this.runDistance = runDistance;
         this.jumpHeight = jumpHeight;
         this.swimDistance = swimDistance;
@@ -36,21 +34,12 @@ public class Dog extends Animals implements Participant {
     }
 
     @Override
-    public boolean Off(){
-        return Off;
-    }
-
-
-    @Override
     public void run(int distance) {
         if (!isOnDistance){
             return;
         }
         if (distance > runDistance){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Собака %s не смогла пробежать кросс длинной %d. И сошла с дистанции.",getName(),distance));
-
             return;
         }
         System.out.println(String.format("Собака %s пробежала кросс длинной %d",getName(),distance));
@@ -65,8 +54,6 @@ public class Dog extends Animals implements Participant {
         }
         if (height > jumpHeight){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Собака %s не прыгнула на высоту %d. И сошла с дистанции.",getName(),height));
             return;
         }
         System.out.println(String.format("Собака %s прыгнула на высоту %d",getName(),height));
@@ -80,8 +67,6 @@ public class Dog extends Animals implements Participant {
         }
         if (distance > runDistance){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Собака %s не проплыла %d. И сошла с дистанции.",getName(),distance));
             return;
         }
         System.out.println(String.format("Собака %s проплыла %d",getName(),distance));

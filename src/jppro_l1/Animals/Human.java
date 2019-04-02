@@ -6,7 +6,6 @@ import jppro_l1.enums.Color;
 public class Human extends Animals implements Participant {
 
     private boolean isOnDistance;
-    private boolean Off;
     private int runDistance;
     private int jumpHeight;
     private int swimDistance;
@@ -14,7 +13,6 @@ public class Human extends Animals implements Participant {
     public Human(String name, int age, String color, int runDistance, int jumpHeight, int swimDistance) {
         super(name, age, color);
         isOnDistance = true;
-        Off = false;
         this.runDistance = runDistance;
         this.jumpHeight = jumpHeight;
         this.swimDistance = swimDistance;
@@ -35,19 +33,12 @@ public class Human extends Animals implements Participant {
     }
 
     @Override
-    public boolean Off(){
-        return Off;
-    }
-
-    @Override
     public void run(int distance) {
         if (!isOnDistance){
             return;
         }
         if (distance > runDistance){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Человек %s  не пробежал кросс длинной %d. И сошел с дистанции.",getName(),distance));
             return;
         }
         System.out.println(String.format("Человек %s пробежал кросс длинной %d",getName(),distance));
@@ -61,8 +52,6 @@ public class Human extends Animals implements Participant {
         }
         if (height > jumpHeight){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Человек %s не прыгнул на высоту %d. И сошел с дистанции.",getName(),height));
             return;
         }
         System.out.println(String.format("Человек %s прыгнул на высоту %d",getName(),height));
@@ -76,8 +65,6 @@ public class Human extends Animals implements Participant {
         }
         if (distance > swimDistance){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Человек %s не проплыл %d. И сошел с дистанции.",getName(),distance));
             return;
         }
         System.out.println(String.format("Человек %s проплыл %d",getName(),distance));

@@ -31,22 +31,5 @@ public class Team {
         System.out.println("*************************************************");
     }
 
-    public void TeamResult(Team team){
-        System.out.println("*************************************************");
-        System.out.println("Название команды " + team.TeamName);
-        System.out.println("Финишировали: ");
-        for (Participant participant : team.getParticipants()){
-
-            String n = participant.getParticipantName();
-            String a = Integer.toString(participant.getParticipantAge());
-            String c = participant.getParticipantColor();
-
-            if (!participant.Off()) {
-                System.out.println("Имя " + n + " Возраст " + a + " Цвет " + c);
-            }
-        }
-        System.out.println("*************************************************");
-    }
-
 
 }

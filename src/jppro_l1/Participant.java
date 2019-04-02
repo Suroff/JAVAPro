@@ -3,8 +3,6 @@ package jppro_l1;
 public interface Participant {
     boolean isOnDistance();
 
-    boolean Off();
-
     String getParticipantName();
 
     int getParticipantAge();

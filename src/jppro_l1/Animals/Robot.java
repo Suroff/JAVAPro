@@ -6,7 +6,6 @@ import jppro_l1.Participant;
 public class Robot implements Participant {
 
     private boolean isOnDistance;
-    private boolean Off;
     private int runDistance;
     private int jumpHeight;
     private int swimDistance;
@@ -19,7 +18,6 @@ public class Robot implements Participant {
         this.color = color;
         this.age = age;
         isOnDistance = true;
-        Off = false;
         this.runDistance = runDistance;
         this.jumpHeight = jumpHeight;
         this.swimDistance = swimDistance;
@@ -64,19 +62,12 @@ public class Robot implements Participant {
     }
 
     @Override
-    public boolean Off(){
-        return Off;
-    }
-
-    @Override
     public void run(int distance) {
         if (!isOnDistance){
             return;
         }
         if (distance > runDistance){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Робот %s не пробежал кросс длинной %d. И сошел с дистанции.",getName(),distance));
             return;
         }
         System.out.println(String.format("Робот %s пробежал кросс длинной %d",getName(),distance));
@@ -90,8 +81,6 @@ public class Robot implements Participant {
         }
         if (height > jumpHeight){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Робот %s не прыгнул на высоту %d. И сошел с дистанции.",getName(),height));
             return;
         }
         System.out.println(String.format("Робот %s прыгнул на высоту %d",getName(),height));
@@ -106,8 +95,6 @@ public class Robot implements Participant {
         }
         if (distance > swimDistance){
             isOnDistance = false;
-            Off = true;
-            System.out.println(String.format("Робот %s не проплыл %d. И сошел с дистанции.",getName(),distance));
             return;
         }
         System.out.println(String.format("Робот %s проплыл %d",getName(),distance));
